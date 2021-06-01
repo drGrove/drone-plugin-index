@@ -1,11 +1,11 @@
 ---
-date: 2019-01-08T07:27:08-05:00
+date: 2021-05-31T23:03:00-07:00
 title: Kaniko
-author: banzaicloud
+author: hashbang
 logo: kaniko.svg
 tags: [ publish, docker ]
-repo: banzaicloud/drone-kaniko
-image: banzaicloud/drone-kaniko
+repo: hashbang/drone-kaniko
+image: hashbang/drone-kaniko
 ---
 
 This plugin can be used to build and publish images to the Docker registry,
@@ -22,7 +22,7 @@ name: default
 
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     username: kevinbacon
     password: pa55word
@@ -35,7 +35,7 @@ Example configuration using multiple tags:
 ```yaml
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     username: kevinbacon
     password: pa55word
@@ -51,7 +51,7 @@ Example configuration using build arguments:
 ```yaml
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     username: kevinbacon
     password: pa55word
@@ -65,7 +65,7 @@ Example configuration using alternate Dockerfile:
 ```yaml
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     username: kevinbacon
     password: pa55word
@@ -78,7 +78,7 @@ Example configuration using a custom registry:
 ```yaml
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     username: kevinbacon
     password: pa55word
@@ -103,7 +103,7 @@ Example configuration using credentials from secrets:
 ```yaml
 steps:
 - name: kaniko
-  image: banzaicloud/drone-kaniko
+  image: hashbhang/drone-kaniko
   settings:
     repo: foo/bar
     username:
@@ -140,3 +140,10 @@ target
 
 build_args
 : custom arguments passed to docker build
+
+reproducible
+: strips timestamps out of the build image to make it reproducible.
+
+single_snapshot
+: takes a single snapshot of the filesystem at the end of the build, so only one layer
+will be appended to the base image.
